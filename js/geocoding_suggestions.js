@@ -99,7 +99,9 @@ function addSuggestionsToPanel(response) {
 			department = suggestion.address.country,
 			region 	   = suggestion.address.state,
 			district   = suggestion.address.district,
+			county   = suggestion.address.county,
 			street     = suggestion.address.street;
+			ville     = suggestion.address.city;
 
 		// could be missing
 		var districtHTML = '';
@@ -128,9 +130,9 @@ function addSuggestionsToPanel(response) {
 						' class="list-group-item list-group-item-action"' +
 						' data-location="' + locationId + '"' +
 						' onclick="getPosition.call(this, event)">' + 
-						'<h5 class="list-group-item-heading">' + city + codepost + '</h5>' +
+						'<h5 class="list-group-item-heading">' + ville + codepost + '</h5>' +
 						'<h6 class="list-group-item-text">' + streetHTML + districtHTML + '</h6>' +
-						'<p class="list-group-item-text">' + department + ', ' + region + '</p>' +
+						'<p class="list-group-item-text">' + department + ', ' + city + ', ' + county + '</p>' +
 					 '</button>'
 		;
 		// attach that suggestion to existing list wrapper (see index.html)
