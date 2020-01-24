@@ -31,6 +31,11 @@ function getPosition() {
 
 			var displayText = 'Latitude : ' + latitude + ' / Longitude : ' + longitude;
 			document.querySelector('#location').innerHTML = displayText;
+					var carte = L.map('macarte').setView([latitude, longitude], 10);
+	
+	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+	}).addTo(carte);
 		}
 	});
 }
