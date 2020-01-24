@@ -92,10 +92,12 @@ function clearOldSuggestions(){
 function addSuggestionsToPanel(response) {   
 	$.map(response.suggestions, function (suggestion) {
 
+
 						       // replace style class used for highlight
 		var city     = suggestion.address.state.replace(/(<mark>|<\/mark>)/gm, ''),
 			postalCode = suggestion.address.postalCode,
 			locationId = suggestion.locationId,
+
 			department = suggestion.address.country,
 			region 	   = suggestion.address.state,
 			district   = suggestion.address.district,
@@ -137,5 +139,13 @@ function addSuggestionsToPanel(response) {
 		;
 		// attach that suggestion to existing list wrapper (see index.html)
 		document.querySelector('.list-group').innerHTML += button;
+
+		
+
+
 	});
+
+
+
 }
+
