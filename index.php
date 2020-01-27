@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="leaflet.css" />
+    <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="js/leaflet.js"></script>
 
@@ -31,7 +32,7 @@
     <script src="script.js"></script>
 </body> -->
 
-<body>
+<body id="body">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
@@ -58,7 +59,7 @@
     </div>
 
 <!-- Le conteneur de notre carte (avec une contrainte CSS pour la taille) -->
-<div id="macarte" style="width:545px; height:490px"></div>
+<div id="macarte"></div>
 
 
 <script type="text/javascript">

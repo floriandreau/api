@@ -34,7 +34,17 @@ function getPosition() {
 		
 			
 	/* la carte s'affiche avec les coordonées */
-			
+	
+
+	let body = document.getElementById('body');
+	let laCarte = document.getElementById('macarte');
+	body.removeChild(laCarte);
+
+	let newCarte = document.createElement('div');
+	newCarte.setAttribute('id', 'macarte');
+
+	body.appendChild(newCarte);
+
 	var carte = L.map('macarte').setView([latitude, longitude], 10);
 
 	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
