@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="img/api.png" type="image/x-icon">
     <title>Document</title>
     <link rel="stylesheet" href="leaflet.css" />
     <link rel="stylesheet" href="style.css" />
@@ -31,7 +32,7 @@
 
     <script src="script.js"></script>
 </body> -->
-
+<br>
 <body id="body">
     <div class="container">
         <div class="row">
@@ -41,7 +42,7 @@
                     <input type="text" id="auto-complete" class="form-control" placeholder="Ex: 37 avenue de Gramont, Vichy" onkeyup="return autoCompleteListener(this, event);" aria-describedby="places-search">
                 </div>
                 <div class="panel panel-default">
-                    <div class="panel-heading">Suggestions :</div>       
+                    <div class="panel-heading">Suggestions: </div>       
                     <ul class="list-group"></ul>
                 </div>
             </div>

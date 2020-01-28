@@ -48,7 +48,7 @@ function getPosition() {
 	var carte = L.map('macarte').setView([latitude, longitude], 10);
 
 	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+		attribution: '&copy; <a href="https://www.accesscodeschool.fr/">ACS - Belfort</a> contributors'
 	}).addTo(carte);
 		}
 	});
