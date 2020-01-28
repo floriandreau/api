@@ -42,11 +42,11 @@
                     <input type="text" id="auto-complete" class="form-control" placeholder="Ex: 37 avenue de Gramont, Vichy" onkeyup="return autoCompleteListener(this, event);" aria-describedby="places-search">
                 </div>
                 <div class="panel panel-default">
-                    <div class="panel-heading">Suggestions: </div>       
+                    <div class="panel-heading" id="sizing-addon2">Suggestions: </div>       
                     <ul class="list-group"></ul>
                 </div>
             </div>
-            <div class="col-md-6">
+            <!--<div class="col-md-6">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">Localisation: </h3>
@@ -55,7 +55,7 @@
                         <div id="location"></div>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
 
