@@ -1,14 +1,11 @@
-#macarte{
-    width: 100%;
-    height: 75vh;
+#macarte {
+  width: 100%;
+  height: 75vh;
 }
-
-
-
-/*
-** body **
-*/
-.row{
-    text-align: center;
+.row {
+  text-align: center;
 }
+h3{
+  text-align: center;
 
+}

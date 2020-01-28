@@ -33,16 +33,18 @@
     <script src="script.js"></script>
 </body> -->
 <br>
+<h3>Voyage ' Voyage</h3>
+<br>
 <body id="body">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class=".col-md-6 .col-md-offset-3">
                 <div class="input-group">
-                    <span class="input-group-addon" id="sizing-addon1">Où ?</span>
-                    <input type="text" id="auto-complete" class="form-control" placeholder="Ex: 37 avenue de Gramont, Vichy" onkeyup="return autoCompleteListener(this, event);" aria-describedby="places-search">
+                    <span class="input-group-addon">Où ?</span>
+                    <input type="text" id="auto-complete" class="form-control" placeholder="Ex: 6 Rue de l'Étang, 90000 Belfort" onkeyup="return autoCompleteListener(this, event);" aria-describedby="places-search">
                 </div>
                 <div class="panel panel-default">
-                    <div class="panel-heading" id="sizing-addon2">Suggestions: </div>       
+                    <div class="panel-heading">Suggestions: </div>       
                     <ul class="list-group"></ul>
                 </div>
             </div>
