@@ -18,3 +18,19 @@
     background-repeat: no-repeat;
     background-position: bottom;
 }
+
+.musee
+{
+    background: url("js/images/musee.png") no-repeat round;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.festi
+{
+    background: url("js/images/festival.png") no-repeat round;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
