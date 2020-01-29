@@ -30,7 +30,7 @@ function getPosition() {
 				longitude = location.longitude;
 
 			var displayText = 'Latitude : ' + latitude + ' / Longitude : ' + longitude;
-			// document.querySelector('#location').innerHTML = displayText;
+			// document.querySelector('#location').innerHTML = displayText; -->Permet d'avoir la valeur en Latitude / Longitude (position).
 		
 			
 	/* la carte s'affiche avec les coordonées */
