@@ -1,0 +1,20 @@
+#macarte{
+    width: 80vw;
+    height: 100vh;
+}
+
+.carbu
+{
+    background: url("js/images/carburant.png") no-repeat round;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.gare
+{
+    background: url("js/images/gare.png") no-repeat round;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
