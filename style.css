@@ -46,7 +46,7 @@
 .entete{
   text-align: center;
 }
-img{
+.logo{
   width: 40%;
 }
 
@@ -58,3 +58,18 @@ img{
   display: none;
 }
 
+.marqueur{
+  width: 10%;
+}
+ul{
+  list-style-type: none;
+}
+
+li{
+  display: flex;
+}
+
+p{
+  padding-top: 10px;
+  padding-left: 10px;
+}

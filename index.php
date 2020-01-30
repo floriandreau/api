@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,14 +13,14 @@
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    
+
     <!-- HERE ~ @see https://developer.here.com/ -->
     <script type="text/javascript" src="js/geocoding_suggestions.js"></script>
     <script type="text/javascript" src="js/geocoding_position.js"></script>
 
     <!-- BOOTSTRAP ~ @see https://getbootstrap.com/docs/3.3/getting-started/ -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	
+
 </head>
 <!-- <body>
     <div id="formulaire">fze</div>
@@ -35,8 +36,8 @@
 <body id="body">
     <div class="container">
         <div class="row">
-        <div class="entete">
-                <img src="assets/img/sodemap.png" alt="sodemap">
+            <div class="entete">
+                <img class="logo" src="assets/img/sodemap.png" alt="sodemap">
             </div>
             <div class="col-md-6">
                 <div class="input-group">
@@ -44,7 +45,7 @@
                     <input type="text" id="auto-complete" class="form-control" placeholder="Ex: 37 avenue de Gramont, Vichy" onkeyup="return autoCompleteListener(this, event);" aria-describedby="places-search">
                 </div>
                 <div class="panel panel-default">
-                    <div class="panel-heading">Suggestions :</div>       
+                    <div class="panel-heading">Suggestions :</div>
                     <ul class="list-group"></ul>
                 </div>
             </div>
@@ -57,17 +58,39 @@
                         <div id="location"></div>
                     </div>
                 </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Legende: </h3>
+                    </div>
+                    <ul>
+                        <li>
+                            <img class="marqueur" src="js/images/musee.png" alt="Musée">
+                            <p>
+                                Musées
+                            </p>
+                        </li>
+                        <li>
+                            <img class="marqueur" src="js/images/carburant.png" alt="Carburant">
+                            <p>Station-essences</p>
+                        </li>
+                        <li>
+                            <img class="marqueur" src="js/images/gare.png" alt="Gare">
+                            <p>Gares</p>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
 
-<!-- Le conteneur de notre carte (avec une contrainte CSS pour la taille) -->
-<div id="macarte"></div>
+    <!-- Le conteneur de notre carte (avec une contrainte CSS pour la taille) -->
+    <div id="macarte"></div>
 
 
-<script type="text/javascript">
+    <script type="text/javascript">
 
-</script>
+    </script>
 
 </body>
+
 </html>
