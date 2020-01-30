@@ -53,83 +53,120 @@ function getPosition() {
 		
 for (let y = 0; y < 4; y++) {
 	if (y==0) {
-		/* api carbu */
+				/* api festi */
 
-	fetch('apiCarbu.php', {
-        method: 'GET', // or 'PUT'
-        cors: 'no-cors',
-        headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*'
-        }
-    })
-    .then((responseCarbu) => {
-        return responseCarbu.json();
-    })
-    .then((myJsonCarbu) => {
-		let myNewJsonCarbu = JSON.parse(myJsonCarbu);
+fetch('apiFestival.php', {
+	method: 'GET', // or 'PUT'
+	cors: 'no-cors',
+	headers: {
+		'Content-Type': 'application/json',
+		'Access-Control-Allow-Origin': '*'
+	}
+})
+.then((responseFesti) => {
+	return responseFesti.json();
+})
+.then((myJsonFesti) => {
+	let myNewJsonFesti = JSON.parse(myJsonFesti);
+
+	let maintenant = new Date();
+	var jour=maintenant.getDate();
+	var mois=maintenant.getMonth()+1;
+	var an=maintenant.getFullYear();
+	if (mois <= 10) {
+		mois = "0"+mois;
+	}
+	let date = jour+"/"+mois+"/"+an;
 	
-		let baseCarbu = myNewJsonCarbu['records'];
-		
-		for (let index = 0; index < baseCarbu.length; index++) {
-			const element = baseCarbu[index]['fields'];
+	/* base qui va permettre de créer des variable qui vont récupérer les infos plus précise */
+	let baseFesti = myNewJsonFesti['records'];
+	
+	/* boucle sur tout les éléments */
+	for (let index = 0; index < baseFesti.length; index++) {
+		const element = baseFesti[index]['fields'];
+		if (element['date_de_debut'] !== undefined && element['date_de_debut'] !== null) {
 			
-			let poseCarbu = element["geo_point"];
-			if (poseCarbu !== undefined && poseCarbu !== null) {
-
-				if (poseCarbu[0] >= Math.floor(latitude) && poseCarbu[1] >= Math.floor(longitude) && poseCarbu[0] <= Math.ceil(latitude) && poseCarbu[1] <= Math.ceil(longitude)) {
-					
-					var marker = L.marker([poseCarbu[0], poseCarbu[1]]).addTo(carte);
-	
-					marker.bindPopup(''); // Je ne met pas de texte par défaut
-					var mapopup = marker.getPopup();
-					let gplc = "";
-					let e10 = "";
-					let gazole = "";
-					let sp95 = "";
-					let sp98 = "";
+			let dateFesti = element['date_de_debut'].split('-');
+			let dateFestiFin = dateFesti[0]+dateFesti[1]+dateFesti[2];
 		
-					if (element['price_gplc'] !== undefined && element['price_gplc'] !== null) {
-						gplc = "<br> GPLC = "+ element['price_gplc'] + " €";
-					}
-					if (element['price_e10'] !== undefined && element['price_e10'] !== null) {
-						e10 = "<br> E10 = "+ element['price_e10'] + " €";
-					}
-					if (element['price_gazole'] !== undefined && element['price_gazole'] !== null) {
-						gazole = "<br> GAZOLE = "+ element['price_gazole'] + " €";
-					}
-					if (element['price_sp95'] !== undefined && element['price_sp95'] !== null) {
-						sp95 = "<br> SP95 = "+ element['price_sp95'] + " €";
-					}
-					if (element['price_sp98'] !== undefined && element['price_sp98'] !== null) {
-						sp98 = "<br> SP98 = "+ element['price_sp98'] + " €";
-					}
-					
-					
-					
-					mapopup.setContent(element['name'] + gplc + e10 + gazole + sp95 + sp98);
 
-				}
+		let verifDate = date.split("/");
+		let verifDateFin = verifDate[2]+verifDate[1]+verifDate[0];
+		
+		if (dateFestiFin > verifDateFin) {
+		
+			
+		
+		/* position des éléments */
+		let poseFesti = element["coordonnees_insee"];
+		if (poseFesti !== undefined && poseFesti !== null) {
+			/* vérifie si la position est vers la zone recherché */
+			if (poseFesti[0] >= Math.floor(latitude) && poseFesti[1] >= Math.floor(longitude) && poseFesti[0] <= Math.ceil(latitude) && poseFesti[1] <= Math.ceil(longitude)) {
 				
+				/* créer le marker */
+				var marker = L.marker([poseFesti[0], poseFesti[1]]).addTo(carte);
+
+				/* créer l'infobull */
+				marker.bindPopup(''); // Je ne met pas de texte par défaut
+				var mapopup = marker.getPopup();
+
+				/* var du contenu de l'infobull */
+				let nom = "";
+				let debut = "";
+				let fin = "";
+				let web = "";
+				let domaine = "";
+				let complement = "";
+	
+				if (element['nom_de_la_manifestation'] !== undefined && element['nom_de_la_manifestation'] !== null) {
+					nom = "<br> Nom : "+element['nom_de_la_manifestation'];
+				}
+
+				if (element['date_de_debut'] !== undefined && element['date_de_debut'] !== null) {
+					debut = "<br> Adresse : "+element['date_de_debut'];
+				}
+
+				if (element['date_de_fin'] !== undefined && element['date_de_fin'] !== null) {
+					fin = "<br> Téléphonne : "+element['date_de_fin'];
+				}
+				if (element['site_web'] !== undefined && element['site_web'] !== null) {
+					web = "<br> Site Web : <a href='"+element['site_web']+"'>";
+				}
+	
+				if (element['domaine'] !== undefined && element['domaine'] !== null) {
+					domaine = "<br> Site Web : "+element['domaine'];
+				}
+				if (element['complement_domaine'] !== undefined && element['complement_domaine'] !== null) {
+					complement = "<br> Site Web : "+element['complement_domaine'];
+				}
+				/* contenue de l'infobull */
+				mapopup.setContent("Festival"+nom+debut+fin+web+domaine+complement);
+
 			}
 			
+		}
+	}
+}
+		
+		
+
+	}
+	/* ajout d'une class pour définir un marker */
+	let lesMarkersFesti = document.getElementsByClassName('leaflet-marker-icon');
+
+		for (let i = 0; i < lesMarkersFesti.length; i++) {
 			
+			const elementImg = lesMarkersFesti[i];
+
+				
+				elementImg.classList.add("festi");
+
 
 		}
 
-		let lesMarkersCarbu = document.getElementsByClassName('leaflet-marker-icon');
-
-			for (let i = 0; i < lesMarkersCarbu.length; i++) {
-				
-				const elementImg = lesMarkersCarbu[i];
-				
-				elementImg.classList.add("carbu");
-				
-
-			}
-
 
 });
+
 	}
 	if (y==1) {
 		/* api gare */
@@ -282,119 +319,83 @@ fetch('apiMusee.php', {
 });
 	}
 	if (y==3) {
-		/* api festi */
+		/* api carbu */
 
-fetch('apiFestival.php', {
-	method: 'GET', // or 'PUT'
-	cors: 'no-cors',
-	headers: {
-		'Content-Type': 'application/json',
-		'Access-Control-Allow-Origin': '*'
-	}
-})
-.then((responseFesti) => {
-	return responseFesti.json();
-})
-.then((myJsonFesti) => {
-	let myNewJsonFesti = JSON.parse(myJsonFesti);
-
-	let maintenant = new Date();
-	var jour=maintenant.getDate();
-	var mois=maintenant.getMonth()+1;
-	var an=maintenant.getFullYear();
-	if (mois <= 10) {
-		mois = "0"+mois;
-	}
-	let date = jour+"/"+mois+"/"+an;
-	
-	/* base qui va permettre de créer des variable qui vont récupérer les infos plus précise */
-	let baseFesti = myNewJsonFesti['records'];
-	
-	/* boucle sur tout les éléments */
-	for (let index = 0; index < baseFesti.length; index++) {
-		const element = baseFesti[index]['fields'];
-		if (element['date_de_debut'] !== undefined && element['date_de_debut'] !== null) {
-			
-			let dateFesti = element['date_de_debut'].split('-');
-			let dateFestiFin = dateFesti[0]+dateFesti[1]+dateFesti[2];
-		
-
-		let verifDate = date.split("/");
-		let verifDateFin = verifDate[2]+verifDate[1]+verifDate[0];
-		
-		if (dateFestiFin > verifDateFin) {
-		
-			
-		
-		/* position des éléments */
-		let poseFesti = element["coordonnees_insee"];
-		if (poseFesti !== undefined && poseFesti !== null) {
-			/* vérifie si la position est vers la zone recherché */
-			if (poseFesti[0] >= Math.floor(latitude) && poseFesti[1] >= Math.floor(longitude) && poseFesti[0] <= Math.ceil(latitude) && poseFesti[1] <= Math.ceil(longitude)) {
-				
-				/* créer le marker */
-				var marker = L.marker([poseFesti[0], poseFesti[1]]).addTo(carte);
-
-				/* créer l'infobull */
-				marker.bindPopup(''); // Je ne met pas de texte par défaut
-				var mapopup = marker.getPopup();
-
-				/* var du contenu de l'infobull */
-				let nom = "";
-				let debut = "";
-				let fin = "";
-				let web = "";
-				let domaine = "";
-				let complement = "";
-	
-				if (element['nom_de_la_manifestation'] !== undefined && element['nom_de_la_manifestation'] !== null) {
-					nom = "<br> Nom : "+element['nom_de_la_manifestation'];
-				}
-
-				if (element['date_de_debut'] !== undefined && element['date_de_debut'] !== null) {
-					debut = "<br> Adresse : "+element['date_de_debut'];
-				}
-
-				if (element['date_de_fin'] !== undefined && element['date_de_fin'] !== null) {
-					fin = "<br> Téléphonne : "+element['date_de_fin'];
-				}
-				if (element['site_web'] !== undefined && element['site_web'] !== null) {
-					web = "<br> Site Web : <a href='"+element['site_web']+"'>";
-				}
-	
-				if (element['domaine'] !== undefined && element['domaine'] !== null) {
-					domaine = "<br> Site Web : "+element['domaine'];
-				}
-				if (element['complement_domaine'] !== undefined && element['complement_domaine'] !== null) {
-					complement = "<br> Site Web : "+element['complement_domaine'];
-				}
-				/* contenue de l'infobull */
-				mapopup.setContent("Festival"+nom+debut+fin+web+domaine+complement);
-
+		fetch('apiCarbu.php', {
+			method: 'GET', // or 'PUT'
+			cors: 'no-cors',
+			headers: {
+				'Content-Type': 'application/json',
+				'Access-Control-Allow-Origin': '*'
 			}
-			
-		}
-	}
-}
+		})
+		.then((responseCarbu) => {
+			return responseCarbu.json();
+		})
+		.then((myJsonCarbu) => {
+			let myNewJsonCarbu = JSON.parse(myJsonCarbu);
 		
-		
-
-	}
-	/* ajout d'une class pour définir un marker */
-	let lesMarkersFesti = document.getElementsByClassName('leaflet-marker-icon');
-
-		for (let i = 0; i < lesMarkersFesti.length; i++) {
+			let baseCarbu = myNewJsonCarbu['records'];
 			
-			const elementImg = lesMarkersFesti[i];
-
+			for (let index = 0; index < baseCarbu.length; index++) {
+				const element = baseCarbu[index]['fields'];
 				
-				elementImg.classList.add("festi");
-
-
-		}
-
-
-});
+				let poseCarbu = element["geo_point"];
+				if (poseCarbu !== undefined && poseCarbu !== null) {
+	
+					if (poseCarbu[0] >= Math.floor(latitude) && poseCarbu[1] >= Math.floor(longitude) && poseCarbu[0] <= Math.ceil(latitude) && poseCarbu[1] <= Math.ceil(longitude)) {
+						
+						var marker = L.marker([poseCarbu[0], poseCarbu[1]]).addTo(carte);
+		
+						marker.bindPopup(''); // Je ne met pas de texte par défaut
+						var mapopup = marker.getPopup();
+						let gplc = "";
+						let e10 = "";
+						let gazole = "";
+						let sp95 = "";
+						let sp98 = "";
+			
+						if (element['price_gplc'] !== undefined && element['price_gplc'] !== null) {
+							gplc = "<br> GPLC = "+ element['price_gplc'] + " €";
+						}
+						if (element['price_e10'] !== undefined && element['price_e10'] !== null) {
+							e10 = "<br> E10 = "+ element['price_e10'] + " €";
+						}
+						if (element['price_gazole'] !== undefined && element['price_gazole'] !== null) {
+							gazole = "<br> GAZOLE = "+ element['price_gazole'] + " €";
+						}
+						if (element['price_sp95'] !== undefined && element['price_sp95'] !== null) {
+							sp95 = "<br> SP95 = "+ element['price_sp95'] + " €";
+						}
+						if (element['price_sp98'] !== undefined && element['price_sp98'] !== null) {
+							sp98 = "<br> SP98 = "+ element['price_sp98'] + " €";
+						}
+						
+						
+						
+						mapopup.setContent(element['name'] + gplc + e10 + gazole + sp95 + sp98);
+	
+					}
+					
+				}
+				
+				
+	
+			}
+	
+			let lesMarkersCarbu = document.getElementsByClassName('leaflet-marker-icon');
+	
+				for (let i = 0; i < lesMarkersCarbu.length; i++) {
+					
+					const elementImg = lesMarkersCarbu[i];
+					
+					elementImg.classList.add("carbu");
+					
+	
+				}
+	
+	
+	});
 	}
 }
 
