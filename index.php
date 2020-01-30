@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="img/api.png" type="image/x-icon">
     <title>Document</title>
-    <link rel="stylesheet" href="leaflet.css" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="leaflet.css"/>
+    <link rel="stylesheet" href="style.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="js/leaflet.js"></script>
 
@@ -17,14 +17,13 @@
     <!-- HERE ~ @see https://developer.here.com/ -->
     <script type="text/javascript" src="js/geocoding_suggestions.js"></script>
     <script type="text/javascript" src="js/geocoding_position.js"></script>
-
+    
     <!-- BOOTSTRAP ~ @see https://getbootstrap.com/docs/3.3/getting-started/ -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	
 </head>
 <!-- <body>
     <div id="formulaire">fze</div>
-
+    
     <button id = "find-me">Montrer ma localisation</button><br/>
 <p id = "status"></p>
 <a id = "map-link" target="_blank"></a>
@@ -48,7 +47,8 @@
                     <ul class="list-group"></ul>
                 </div>
             </div>
-            <!--<div class="col-md-6">
+<!--Permet d'avoir un visuel sur la recherche effectuer (Latitude / Longitude)-->
+            <!--<div class="col-md-6"> 
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">Localisation: </h3>
@@ -58,6 +58,7 @@
                     </div>
                 </div>
             </div>-->
+
         </div>
     </div>
 
