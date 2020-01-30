@@ -1,11 +1,60 @@
 #macarte {
-  width: 100%;
-  height: 75vh;
+  width: 80%;
+  height: 90vh;
+  margin: 20px;
+  vertical-align: middle;
 }
-.row {
-  text-align: center;
-}
-h3{
-  text-align: center;
 
+.carbu
+{
+    background: url("js/images/carburant.png") no-repeat round;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
 }
+
+.gare
+{
+    background: url("js/images/gare.png") no-repeat round;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.musee
+{
+    background: url("js/images/musee.png") no-repeat round;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.festi
+{
+    background: url("js/images/festival.png") no-repeat round;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+#body{
+  background-color: #F9943B;
+  display: flex;
+  overflow: hidden;
+}
+
+.entete{
+  text-align: center;
+}
+img{
+  width: 40%;
+}
+
+.recherche{
+  margin: 0 30px;
+}
+
+.none{
+  display: none;
+}
+
