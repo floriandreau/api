@@ -291,7 +291,9 @@ fetch('apiMusee.php', {
 	
 }
 	});
-
+	let valInput = document.getElementById('auto-complete');
+	valInput.value = "";
+	
 	let divSuggestions = document.getElementsByClassName('panel-heading');
 	for (let index = 0; index < divSuggestions.length; index++) {
 		const element = divSuggestions[index];
@@ -304,4 +306,6 @@ fetch('apiMusee.php', {
 		element.classList.add('hide');
 		
 	}
+	
+
 }

@@ -30,6 +30,7 @@ var AUTOCOMPLETION_URL = 'https://autocomplete.geocoder.api.here.com/6.2/suggest
  *  The DOM event which fired this listener.
  */
 function removeHide() {
+	
 	let divSuggestions = document.getElementsByClassName('panel-heading');
 	for (let index = 0; index < divSuggestions.length; index++) {
 		const element = divSuggestions[index];
