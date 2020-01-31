@@ -37,6 +37,11 @@
     background-position: bottom;
 }
 
+.hide
+{
+  display: none;
+}
+
 #body{
   background-color: #F9943B;
   display: flex;

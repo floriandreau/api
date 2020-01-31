@@ -291,4 +291,17 @@ fetch('apiMusee.php', {
 	
 }
 	});
+
+	let divSuggestions = document.getElementsByClassName('panel-heading');
+	for (let index = 0; index < divSuggestions.length; index++) {
+		const element = divSuggestions[index];
+		element.classList.add('hide');
+		
+	}
+	let ulSuggestions = document.getElementsByClassName('list-group');
+	for (let index = 0; index < divSuggestions.length; index++) {
+		const element = ulSuggestions[index];
+		element.classList.add('hide');
+		
+	}
 }

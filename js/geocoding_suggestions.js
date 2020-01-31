@@ -29,6 +29,21 @@ var AUTOCOMPLETION_URL = 'https://autocomplete.geocoder.api.here.com/6.2/suggest
  * @param {object} event 
  *  The DOM event which fired this listener.
  */
+function removeHide() {
+	let divSuggestions = document.getElementsByClassName('panel-heading');
+	for (let index = 0; index < divSuggestions.length; index++) {
+		const element = divSuggestions[index];
+		element.classList.remove('hide');
+		
+	}
+	let ulSuggestions = document.getElementsByClassName('list-group');
+	for (let index = 0; index < divSuggestions.length; index++) {
+		const element = ulSuggestions[index];
+		element.classList.remove('hide');
+		
+	}
+}
+
 function autoCompleteListener(textBox, event) {
 	if (query != textBox.value) {
 		if (textBox.value.length >= 1) {
@@ -126,19 +141,21 @@ function addSuggestionsToPanel(response) {
 			 codepost = ' (' + postalCode + ')';
 		}
 		else{ codepost =""}
-
-		// create suggestion 
-		var button = '<button' +
-						' class="list-group-item list-group-item-action"' +
-						' data-location="' + locationId + '"' +
-						' onclick="getPosition.call(this, event)">' + 
-						'<h5 class="list-group-item-heading">' + ville + codepost + '</h5>' +
-						'<h6 class="list-group-item-text">' + streetHTML + districtHTML + '</h6>' +
-						'<p class="list-group-item-text">' + department + ', ' + city + ', ' + county + '</p>' +
-					 '</button>'
-		;
-		// attach that suggestion to existing list wrapper (see index.html)
-		document.querySelector('.list-group').innerHTML += button;
+		if (ville !== undefined) {
+			
+			// create suggestion 
+			var button = '<button' +
+							' class="list-group-item list-group-item-action"' +
+							' data-location="' + locationId + '"' +
+							' onclick="getPosition.call(this, event)">' + 
+							'<h5 class="list-group-item-heading">' + ville + codepost + '</h5>' +
+							'<h6 class="list-group-item-text">' + streetHTML + districtHTML + '</h6>' +
+							'<p class="list-group-item-text">' + department + ', ' + city + ', ' + county + '</p>' +
+						 '</button>'
+			;
+			// attach that suggestion to existing list wrapper (see index.html)
+			document.querySelector('.list-group').innerHTML += button;
+		}
 
 		
 

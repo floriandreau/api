@@ -43,10 +43,10 @@
             <div class="col-md-6">
                 <div class="input-group">
                     <span class="input-group-addon" id="sizing-addon1">Où ?</span>
-                    <input type="text" id="auto-complete" class="form-control" placeholder="Ex: 37 avenue de Gramont, Vichy" onkeyup="return autoCompleteListener(this, event);" aria-describedby="places-search">
+                    <input type="text" id="auto-complete" class="form-control" placeholder="Ex: 37 avenue de Gramont, Vichy" onkeypress="removeHide()" onkeyup="return autoCompleteListener(this, event);" aria-describedby="places-search">
                 </div>
                 <div class="panel panel-default">
-                    <div class="panel-heading">Suggestions: </div>
+                    <div class="panel-heading hide">Suggestions :</div>
                     <ul class="list-group"></ul>
                 </div>
             </div>
