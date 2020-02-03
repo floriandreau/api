@@ -46,29 +46,28 @@
                     <input type="text" id="auto-complete" class="form-control" placeholder="Ex: 37 avenue de Gramont, Vichy" onkeypress="removeHide()" onkeyup="return autoCompleteListener(this, event);" aria-describedby="places-search">
                 </div>
                 <div class="panel panel-default">
-                    <div class="panel-heading hide">Suggestions :</div>
+                    <div class="panel-heading hide">Suggestions: </div>
                     <ul class="list-group"></ul>
                 </div>
             </div>
+            
             <div class="col-md-6">
-                <div class="panel panel-default">
+                <!-- <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">Localisation: </h3>
                     </div>
                     <div class="panel-body">
                         <div id="location"></div>
                     </div>
-                </div>
+                </div> -->
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Legende: </h3>
+                        <h3 class="panel-title" id="legende">Legende: </h3>
                     </div>
                     <ul>
                         <li>
                             <img class="marqueur" src="js/images/musee.png" alt="Musée">
-                            <p>
-                                Musées
-                            </p>
+                            <p>Musées</p>
                         </li>
                         <li>
                             <img class="marqueur" src="js/images/carburant.png" alt="Carburant">
@@ -85,7 +84,9 @@
     </div>
 
     <!-- Le conteneur de notre carte (avec une contrainte CSS pour la taille) -->
-    <div id="macarte"></div>
+    <div id="macarte">
+    </div>
+ 
 
 
     <script type="text/javascript">
