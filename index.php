@@ -64,7 +64,7 @@
                     <div class="panel-heading">
                         <h3 class="panel-title" id="legende">Legende: </h3>
                     </div>
-                    <ul>
+                    <ul id="mark">
                         <li>
                             <img class="marqueur" src="js/images/musee.png" alt="Musée">
                             <p>Musées</p>
