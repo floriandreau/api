@@ -71,7 +71,7 @@
                         </li>
                         <li>
                             <img class="marqueur" src="js/images/carburant.png" alt="Carburant">
-                            <p>Station-essences</p>
+                            <p>Station</p>
                         </li>
                         <li>
                             <img class="marqueur" src="js/images/gare.png" alt="Gare">
