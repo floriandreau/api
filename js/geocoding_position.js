@@ -34,7 +34,6 @@ function getPosition() {
 		
 			
 	/* la carte s'affiche avec les coordonées */
-	
 
 	let body = document.getElementById('body');
 	let laCarte = document.getElementById('macarte');
@@ -45,12 +44,23 @@ function getPosition() {
 
 	body.appendChild(newCarte);
 
+			/* afficher loader et lui donner un widthet un height et reprennet celui de la carte */
+	let loader = document.getElementById('fondOrange');
+	let widthCarte = document.getElementById('macarte').offsetWidth;
+	let heightCarte = document.getElementById('macarte').offsetHeight;
+	
+	loader.style.width = widthCarte+"px";
+	loader.style.height = heightCarte+"px";
+	loader.classList.remove('hide');
+
+	
 	var carte = L.map('macarte').setView([latitude, longitude], 13);
 
 	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 	}).addTo(carte);
-		
+	
+	let statutLoad = false;
 
 		/* api gare */
 
@@ -271,6 +281,12 @@ fetch('apiMusee.php', {
 					const elementImg = lesMarkersCarbu[i];
 					
 					elementImg.classList.add("carbu");
+	
+					statutLoad = true;
+					if (statutLoad == true) {
+						loader.classList.add('hide');
+						
+					}
 					
 	
 				}
@@ -307,5 +323,6 @@ fetch('apiMusee.php', {
 		
 	}
 	
+
 
 }
