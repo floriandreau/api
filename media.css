@@ -1,0 +1,99 @@
+/******************************
+*****RESPONSIVE (Mobile)*******
+*******************************/
+
+/*Small devices Mobiles(Galaxy S5)*/
+@media (min-width: 360px) and (max-width: 992px) {
+  /*BODY*/
+  #body {
+    background-color: #f9943b;
+    display: block;
+    overflow: hidden;
+  }
+
+  /*MAP*/
+  #macarte {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 90vw;
+    max-height: 80vw;
+  }
+
+  /*LEGENDE*/
+  .marqueur {
+    width: auto;
+    height: 42px;
+  }
+
+  #mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 40%;
+  }
+
+  li > p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 0;
+  }
+}
+
+/*large devicesMobiles(XL)*/
+@media (min-width: 411px) and (max-width: 823px) {
+  /*BODY*/
+  #body {
+    background-color: #f9943b;
+    display: block;
+    overflow: hidden;
+  }
+
+  /*MAP*/
+  #macarte {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 90vw;
+    min-height: 90vw;
+  }
+
+  /*LEGENDE*/
+  .marqueur {
+    width: auto;
+    height: 40px;
+    padding-top: 10px;
+  }
+
+  #mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 33%;
+  }
+
+  li > p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+
+
+

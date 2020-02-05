@@ -7,8 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="assets/img/icon.png" type="image/x-icon">
     <title>Sode'Map</title>
-    <link rel="stylesheet" href="leaflet.css" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="leaflet.css"/>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="media.css" media="all"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="js/leaflet.js"></script>
 
@@ -60,9 +61,9 @@
                         <div id="location"></div>
                     </div>
                 </div> -->
-                <div class="panel panel-default">
+                <div class="panel panel-default" id="legende">
                     <div class="panel-heading">
-                        <h3 class="panel-title" id="legende">Legende: </h3>
+                        <h3 class="panel-title">Legende: </h3>
                     </div>
                     <ul id="mark">
                         <li>
@@ -86,7 +87,9 @@
     <!-- Le conteneur de notre carte (avec une contrainte CSS pour la taille) -->
     <div id="macarte">
     </div>
- 
+        <div id="fondOrange" class="hide">
+            <div class="loader"></div> 
+        </div>
 
 
     <script type="text/javascript">
