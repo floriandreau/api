@@ -53,14 +53,11 @@
             </div>
             
             <div class="col-md-6">
-                <!-- <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Localisation: </h3>
-                    </div>
+                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <div id="location"></div>
+                        <div id="location">Retrouvez les musées, gares et station-essence de la ville de votre choix avec les alentours</div>
                     </div>
-                </div> -->
+                </div> 
                 <div class="panel panel-default" id="legende">
                     <div class="panel-heading">
                         <h3 class="panel-title">Legende: </h3>
@@ -88,6 +85,7 @@
     <div id="macarte">
     </div>
         <div id="fondOrange" class="hide">
+            <p id="chargement"></p>
             <div class="loader"></div> 
         </div>
 

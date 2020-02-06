@@ -48,12 +48,20 @@ function getPosition() {
 	let loader = document.getElementById('fondOrange');
 	let widthCarte = document.getElementById('macarte').offsetWidth;
 	let heightCarte = document.getElementById('macarte').offsetHeight;
-	
+	let topCarte = document.getElementById('macarte').offsetTop;
+	let leftCarte = document.getElementById('macarte').offsetLeft;
+
 	loader.style.width = widthCarte+"px";
 	loader.style.height = heightCarte+"px";
+	loader.style.top = topCarte+"px";
+	loader.style.left = leftCarte+"px";
 	loader.classList.remove('hide');
 
-	
+	let textCharge = document.getElementById('chargement');
+	let chargeMusee = "en cours";
+	let chargeGare = "en cours";
+	let chargeCarbu = "en cours";
+	textCharge.innerHTML ="Chargement des Musées "+chargeMusee+"<br> Chargement des Gares "+chargeGare+"<br>Chargement des Station-essences "+chargeCarbu;
 	var carte = L.map('macarte').setView([latitude, longitude], 13);
 
 	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
@@ -125,9 +133,10 @@ fetch('apiGare.php', {
 				
 				elementImg.classList.add("gare");
 
+			}
+			chargeGare = "réussit";
 
-		}
-
+			textCharge.innerHTML ="Chargement des Musées "+chargeMusee+"<br> Chargement des Gares "+chargeGare+"<br>Chargement des Station-essences "+chargeCarbu;
 
 });
 	
@@ -206,7 +215,9 @@ fetch('apiMusee.php', {
 
 
 		}
+		chargeMusee = "réussit";
 
+		textCharge.innerHTML ="Chargement des Musées "+chargeMusee+"<br> Chargement des Gares "+chargeGare+"<br>Chargement des Station-essences "+chargeCarbu;
 
 });
 	
@@ -282,28 +293,19 @@ fetch('apiMusee.php', {
 					
 					elementImg.classList.add("carbu");
 	
-					statutLoad = true;
-					if (statutLoad == true) {
-						loader.classList.add('hide');
-						
-					}
 					
-	
+					
 				}
-	
-	
-	});
-
-
-
-
-
-
-
-
-
-
-
+				
+				chargeCarbu = "réussit";
+				
+				textCharge.innerHTML ="Chargement des Musées "+chargeMusee+"<br> Chargement des Gares "+chargeGare+"<br>Chargement des Station-essences "+chargeCarbu;
+				statutLoad = true;
+				if (statutLoad == true) {
+					loader.classList.add('hide');
+					
+				}
+			});
 	
 }
 	});
