@@ -55,7 +55,7 @@
             <div class="col-md-6">
                  <div class="panel panel-default">
                     <div class="panel-body">
-                        <div id="location">Retrouvez les musées, gares et station-essence de la ville de votre choix avec les alentours</div>
+                        <div id="location" id="resum">Retrouvez les musées, gares et station-essence de la ville de votre choix avec les alentours</div>
                     </div>
                 </div> 
                 <div class="panel panel-default" id="legende">
