@@ -319,9 +319,13 @@ fetch('apiMusee.php', {
 		
 	}
 	let ulSuggestions = document.getElementsByClassName('list-group');
-	for (let index = 0; index < divSuggestions.length; index++) {
+	for (let index = 0; index < ulSuggestions.length; index++) {
 		const element = ulSuggestions[index];
-		element.classList.add('hide');
+		
+		if (element.classList.contains('hide') == false) {
+			
+			element.classList.add('hide');
+		}
 		
 	}
 	

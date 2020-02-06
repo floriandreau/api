@@ -40,7 +40,7 @@ function removeHide() {
 	let ulSuggestions = document.getElementsByClassName('list-group');
 	for (let index = 0; index < divSuggestions.length; index++) {
 		const element = ulSuggestions[index];
-		element.classList.remove('hide');
+
 		
 	}
 }
@@ -110,7 +110,7 @@ function addSuggestionsToPanel(response) {
 
 
 						       // replace style class used for highlight
-		var city     = suggestion.address.state.replace(/(<mark>|<\/mark>)/gm, ''),
+		var city     = suggestion.address.state,
 			postalCode = suggestion.address.postalCode,
 			locationId = suggestion.locationId,
 
