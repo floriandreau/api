@@ -54,14 +54,12 @@
             
             <div class="col-md-6">
                  <div class="panel panel-default">
-                    <div class="panel-body">
-                        <div id="location">Retrouvez les musées, gares et station-essence de la ville de votre choix avec les alentours</div>
+                    <div class="panel-body" id="resum">
+                        <div id="location">Retrouvez les musées, gares et station-essences de la ville de votre choix avec les alentours</div>
                     </div>
                 </div> 
                 <div class="panel panel-default" id="legende">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Legende: </h3>
-                    </div>
+                   
                     <ul id="mark">
                         <li>
                             <img class="marqueur" src="js/images/musee.png" alt="Musée">
